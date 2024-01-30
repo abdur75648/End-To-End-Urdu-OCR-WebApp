@@ -2,9 +2,10 @@
 title: UrduOCR UTRNet
 emoji: 📖
 colorFrom: red
-colorTo: red
+colorTo: green
 sdk: gradio
 sdk_version: 4.16.0
+python_version: 3.10.13
 app_file: app.py
 pinned: false
 license: cc-by-nc-sa-4.0

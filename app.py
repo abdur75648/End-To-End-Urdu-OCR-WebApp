@@ -59,7 +59,7 @@ iface = gr.Interface(predict,
                      inputs=input,
                      outputs=[output_image,output_text],
                      title="End-to-End Urdu OCR",
-                     description="Demo Web App For UTRNet (https://github.com/abdur75648/UTRNet-High-Resolution-Urdu-Text-Recognition)",
+                     description="Demo Web App For UTRNet\n(https://github.com/abdur75648/UTRNet-High-Resolution-Urdu-Text-Recognition)",
                      examples=examples,
                      allow_flagging="never")
 iface.launch()
