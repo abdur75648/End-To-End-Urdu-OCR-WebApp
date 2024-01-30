@@ -1,0 +1,11 @@
+torch>=1.9.1
+torchvision>=0.10.1
+PyArabic==0.6.15
+arabic-reshaper==3.0.0
+numpy==1.21.6
+Pillow==9.4.0
+tqdm==4.65.0
+opencv-python==4.5.1.48
+opencv-contrib-python==4.5.1.48
+kraken==4.3.13
+gradio==4.15.0
