@@ -3,8 +3,7 @@ import gradio as gr
 from read import text_recognizer
 from model import Model
 from utils import CTCLabelConverter
-from kraken import binarization
-from kraken import pageseg as detection_model
+from ultralytics import YOLO
 from PIL import ImageDraw
 
 """ vocab / character number configuration """
@@ -16,9 +15,11 @@ content = content+" "
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 converter = CTCLabelConverter(content)
 recognition_model = Model(num_class=len(converter.character), device=device)
-modrecognition_modelel = recognition_model.to(device)
+recognition_model = recognition_model.to(device)
 recognition_model.load_state_dict(torch.load("best_norm_ED.pth", map_location=device))
 recognition_model.eval()
+
+detection_model = YOLO("yolov8m_UrduDoc.pt")
 
 examples = ["1.jpg","2.jpg","3.jpg"]
 
@@ -26,14 +27,16 @@ input = gr.Image(type="pil",image_mode="RGB", label="Input Image")
 
 def predict(input):
     "Line Detection"
-    bw_input = binarization.nlbin(input)
-    bounding_boxes = detection_model.segment(bw_input)['boxes']
+    detection_results = detection_model.predict(source=input, conf=0.2, imgsz=1280, save=False, nms=True, device=device)
+    bounding_boxes = detection_results[0].boxes.xyxy.cpu().numpy().tolist()
     bounding_boxes.sort(key=lambda x: x[1])
     
     "Draw the bounding boxes"
     draw = ImageDraw.Draw(input)
     for box in bounding_boxes:
-        draw.rectangle(box, outline='red', width=3)
+        # draw rectangle outline with random color and width=5
+        from numpy import random
+        draw.rectangle(box, fill=None, outline=tuple(random.randint(0,255,3)), width=5)
     
     "Crop the detected lines"
     cropped_images = []
