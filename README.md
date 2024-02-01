@@ -17,11 +17,10 @@ The application is deployed on Hugging Face Spaces and is available for a live d
 ## Installation
 
 Clone this repository and install the dependencies using the following command:
+> *Facing issues in downloading model checkpoints properly? See [this issue](https://github.com/abdur75648/End-To-End-Urdu-OCR-WebApp/issues/1#issuecomment-1920816798)*
 ```bash
 pip install -r requirements.txt
 ```
-
-*Facing issues in downloading model checkpoints properly? See [this issue]([url](https://github.com/abdur75648/End-To-End-Urdu-OCR-WebApp/issues/1#issuecomment-1920816798))*
 
 ## Usage
 To install the application, first clone this repository. Then, install the necessary dependencies using the following command:
