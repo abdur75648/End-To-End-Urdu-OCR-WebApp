@@ -14,19 +14,18 @@ The application is deployed on Hugging Face Spaces and is available for a live d
 
 > **Note:** *This version of the application uses a YoloV8 model for text detection. The original version of UTRNet uses ContourNet for this purpose. However, due to deployment issues, we have opted for YoloV8 in this demo. While YoloV8 is as accurate as ContourNet, it offers the advantages of faster processing and greater efficiency.*
 
-## Installation
-
-Clone this repository and install the dependencies using the following command (python 3.10):
-> *Facing issues in downloading model checkpoints properly? See [this issue](https://github.com/abdur75648/End-To-End-Urdu-OCR-WebApp/issues/1#issuecomment-1920816798)*
-```bash
-pip install -r requirements.txt
-```
 
 ## Usage
 To install the application, first clone this repository. Then, install the necessary dependencies using the following command:
 ```bash
 pip install -r requirements.txt
 ```
+
+Download the model checkpoints by running the following command:
+```bash
+bash download_files.sh
+```
+> *Facing issues in downloading model checkpoints properly? See [this issue](https://github.com/abdur75648/End-To-End-Urdu-OCR-WebApp/issues/1#issuecomment-1920816798)*
 
 * To run the application, execute the following command:
 ```bash

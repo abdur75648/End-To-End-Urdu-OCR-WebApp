@@ -4,5 +4,6 @@ build/
 *.egg-info/
 *.egg
 *.DS_Store
+*.pt
 *.pth
 *.jpg
