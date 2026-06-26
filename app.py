@@ -56,7 +56,7 @@ def predict(input):
     return input,text
 
 output_image = gr.Image(type="pil",image_mode="RGB",label="Detected Lines")
-output_text = gr.Textbox(label="Recognized Text",interactive=True,show_copy_button=True)
+output_text = gr.Textbox(label="Recognized Text", interactive=True, buttons=["copy"], rtl=True)
 
 iface = gr.Interface(predict,
                      inputs=input,
@@ -64,5 +64,5 @@ iface = gr.Interface(predict,
                      title="End-to-End Urdu OCR",
                      description="Demo Web App For UTRNet\n(https://github.com/abdur75648/UTRNet-High-Resolution-Urdu-Text-Recognition)",
                      examples=examples,
-                     allow_flagging="never")
+                     flagging_mode="never")
 iface.launch()
